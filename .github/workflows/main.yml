@@ -13,6 +13,12 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Install Java
+      run: |
+        sudo apt-get update
+        sudo apt-get install default-jre
+        sudo apt-get install default-jdk
+    
     - name: Set up JDK  # Ensure Java is installed
       uses: actions/setup-java@v2
       with:
