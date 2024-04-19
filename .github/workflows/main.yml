@@ -1,0 +1,22 @@
+name: Execute CX Flow
+
+on:
+  push:
+    branches:
+      - main  # Modify this if you want to trigger on different branches
+
+jobs:
+  execute_cx_flow:
+    runs-on: ubuntu-latest  # You can change the operating system if needed
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up JDK  # Ensure Java is installed
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'  # Change as per your requirement
+
+    - name: Run CX Flow
+      run: java -jar cx-flow-1.6.19.jar --spring.config.location="D:\New folder\sca.yml" --scan --f="D:\Paras\OSA_samples" --app="DVWA"
