@@ -7,22 +7,22 @@ on:
 
 jobs:
   execute_cx_flow:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up JDK
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'  # You can specify the Java version you need here
+#    - name: Set up JDK
+#      uses: actions/setup-java@v2
+#      with:
+#        java-version: '11'  # You can specify the Java version you need here
 
-    - name: Install Java
-      run: |
-        sudo apt-get update
-        sudo apt-get install default-jre
-        sudo apt-get install default-jdk
+#    - name: Install Java
+#      run: |
+#        sudo apt-get update
+#        sudo apt-get install default-jre
+#        sudo apt-get install default-jdk
 
     - name: Run CX Flow
-      run: java -jar cx-flow-1.6.19.jar --spring.config.location="D:\New folder\sca.yml" --scan --f="D:\Paras\OSA_samples" --app="DVWA"
+      run: java -jar cx-flow-1.6.19.jar --spring.config.location="D:\CxFlow\sca.yml" --scan --f="D:\Paras\OSA_samples" --app="DVWA"
