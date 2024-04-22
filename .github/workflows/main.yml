@@ -25,4 +25,4 @@ jobs:
 #        sudo apt-get install default-jdk
 
     - name: Run CX Flow
-      run: java -jar "D:\CxFlow\cx-flow-1.7.0.jar" --spring.config.location="${{ github.workspace }}\sca.yml" --scan --f="${{ github.workspace }}" --app="DVWA"
+      run: java -jar "D:\CxFlow\cx-flow-1.7.0.jar" --spring.config.location="${{ github.workspace }}\sca.yml" --scan --f="${{ github.workspace }}" --app="DVWA" --cx-project="00202087_Paras"
