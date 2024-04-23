@@ -1,4 +1,13 @@
+server:
+  port: 8982
+logging:
+  file:
+    name: flow.log
+
 cxflow:
+  bug-tracker: GitHub
+  bug-tracker-impl:
+    - GitHub
   enabled-vulnerability-scanners:
     - sca
   #  - sast
