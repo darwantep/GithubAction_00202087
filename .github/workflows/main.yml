@@ -11,13 +11,12 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    
-    - name: Download and extract zip
-      uses: actions/download-artifact@v2
-      with:
-        name: https://sca-downloads.s3.amazonaws.com/cli/latest/ScaResolver-linux64.tar.gz  # Name of the artifact to download
-        path: ${{ github.workspace }}  # Path to extract the contents of the zip
-    
+
+    - name: Download and Extract ZIP
+      run: |
+        curl -o file.zip https://sca-downloads.s3.amazonaws.com/cli/latest/ScaResolver-linux64.tar.gz
+        unzip file.zip
+        
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.4 # GitHub Action version
       with:
