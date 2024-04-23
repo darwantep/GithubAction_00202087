@@ -14,8 +14,8 @@ jobs:
 
     - name: Download and Extract ZIP
       run: |
-        curl -o file.zip https://sca-downloads.s3.amazonaws.com/cli/latest/ScaResolver-linux64.tar.gz
-        unzip file.zip
+        curl -o file.tar.gz https://sca-downloads.s3.amazonaws.com/cli/latest/ScaResolver-linux64.tar.gz
+        tar -xzvf file.tar.gz
         
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.4 # GitHub Action version
