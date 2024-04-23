@@ -1,28 +1,33 @@
-name: Execute CX Flow
-
+name: Checkmarx SCA Scan
 on:
   push:
     branches:
       - main
-
+      - master
+    
 jobs:
-  execute_cx_flow:
-    runs-on: self-hosted
-
+  build:
+    runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
+    - name: Checkout
       uses: actions/checkout@v2
+    - name: Checkmarx CxFlow Action
+      uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.4 # GitHub Action version
+      with:
+        project: ${{ secrets.CHECKMARX_PROJECT }}  # <-- Insert Checkmarx CxSCA Project Name
+        sca_api_url: https://api.scacheckmarx.com
+        sca_app_url: https://sca.scacheckmarx.com
+        sca_access_control_url: https://platform.checkmarx.net
+        sca_tenant: <SCATenant>  # <-- Insert Checkmarx CxSCA Tenant
+        sca_username: ${{ secrets.CHECKMARX_SCA_USERNAME }} # To be stored in GitHub Secrets.
+        sca_password: ${{ secrets.CHECKMARX_SCA_PASSWORD }} # To be stored in GitHub Secrets.
+        break_build: false
+        scanners: sca
+        enable-sca-resolver : true
+        bug_tracker: Sarif
+        params: --namespace=${{ github.repository_owner }} --checkmarx.settings-override=true --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref_name }} --repo-url="<GitHubRepoUrl>" --cx-flow.filterSeverity --cx-flow.filterCategory
 
-#    - name: Set up JDK
-#      uses: actions/setup-java@v2
-#      with:
-#        java-version: '11'  # You can specify the Java version you need here
-
-#    - name: Install Java
-#      run: |
-#        sudo apt-get update
-#        sudo apt-get install default-jre
-#        sudo apt-get install default-jdk
-
-    - name: Run CX Flow
-      run: java -jar "D:\CxFlow\cx-flow-1.7.0.jar" --spring.config.location="${{ github.workspace }}\sca.yml" --scan --f="${{ github.workspace }}" --app="DVWA" --cx-project="00202087_Paras"
+    - name: Upload SARIF file
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: cx.sarif
