@@ -27,7 +27,7 @@ sca:
   fingerprints-include-pattern: "**/*.yml"
   preserve-xml: true
   enable-sca-resolver : true
-  path-to-sca-resolver : "D:\ScaResolver\2.6.7\ScaResolver.exe"
+  path-to-sca-resolver : "D:\ScaResolver\2.6.7"
   #  sca-resolver-add-parameters :
   #  log-level : Debug
   #  e : "*.ext1"
