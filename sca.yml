@@ -28,6 +28,6 @@ sca:
   preserve-xml: true
   enable-sca-resolver : true
   #path-to-sca-resolver : "D:\ScaResolver\2.6.7\ScaResolver.exe"
-    sca-resolver-add-parameters :
-    log-level : Debug
-    e : "*.ext1"
+  #  sca-resolver-add-parameters :
+  #  log-level : Debug
+  #  e : "*.ext1"
