@@ -11,6 +11,13 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    
+    - name: Download and extract zip
+      uses: actions/download-artifact@v2
+      with:
+        name: https://sca-downloads.s3.amazonaws.com/cli/latest/ScaResolver-linux64.tar.gz  # Name of the artifact to download
+        path: ${{ github.workspace }}  # Path to extract the contents of the zip
+    
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.4 # GitHub Action version
       with:
@@ -24,6 +31,7 @@ jobs:
         break_build: false
         scanners: sca
         enable-sca-resolver : true
+        path-to-sca-resolver : ${{ github.workspace }}
         bug_tracker: Sarif
         params: --namespace=${{ github.repository_owner }} --checkmarx.settings-override=true --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref_name }} --repo-url="<GitHubRepoUrl>" --cx-flow.filterSeverity --cx-flow.filterCategory
 
