@@ -32,9 +32,7 @@ jobs:
         include-sources: false
         enable-sca-resolver : true
         path-to-sca-resolver : ${{ github.workspace }}
-        sca-resolver-add-parameters :
-          log-level : Debug
-        
+          --sca.sca-resolver-add-parameters.log-level=Debug
         bug_tracker: Sarif
         params: --namespace=${{ github.repository_owner }} --checkmarx.settings-override=true --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref_name }} --repo-url="<GitHubRepoUrl>" --cx-flow.filterSeverity --cx-flow.filterCategory
 
