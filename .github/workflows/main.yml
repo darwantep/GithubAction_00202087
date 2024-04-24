@@ -19,6 +19,9 @@ jobs:
         
     - name: Show Extraction Path
       run: pwd
+  
+    - name: List Directory Contents
+      run: ls -al
         
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.4 # GitHub Action version
