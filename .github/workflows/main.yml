@@ -7,27 +7,27 @@ on:
     
 jobs:
   build:
-    runs-on: Linux
+    runs-on: self-hosted
     steps:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Download and Extract ZIP
-      run: |
-        curl -o file.tar.gz https://sca-downloads.s3.amazonaws.com/cli/latest/ScaResolver-linux64.tar.gz
-        tar -xzvf file.tar.gz
+   # - name: Download and Extract ZIP
+   #   run: |
+   #     curl -o file.tar.gz https://sca-downloads.s3.amazonaws.com/cli/latest/ScaResolver-linux64.tar.gz
+   #     tar -xzvf file.tar.gz
         
-    - name: Show Extraction Path
-      run: pwd
+   # - name: Show Extraction Path
+   #   run: pwd
   
-    - name: List Directory Contents
-      run: ls -al
+   # - name: List Directory Contents
+   #   run: ls -al
     
-    - name: Set Permissions
-      run: chmod -R 777 .
+   # - name: Set Permissions
+   #   run: chmod -R 777 .
       
-    - name: List Directory Contents
-      run: ls -al
+   # - name: List Directory Contents
+   #   run: ls -al
         
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.4 # GitHub Action version
