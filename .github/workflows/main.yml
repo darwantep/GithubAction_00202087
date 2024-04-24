@@ -22,6 +22,12 @@ jobs:
   
     - name: List Directory Contents
       run: ls -al
+    
+    - name: Set Permissions
+      run: chmod -R 777 .
+      
+    - name: List Directory Contents
+      run: ls -al
         
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.4 # GitHub Action version
