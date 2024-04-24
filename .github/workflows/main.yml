@@ -17,6 +17,9 @@ jobs:
         curl -o file.tar.gz https://sca-downloads.s3.amazonaws.com/cli/latest/ScaResolver-linux64.tar.gz
         tar -xzvf file.tar.gz
         
+    - name: Show Extraction Path
+      run: pwd
+        
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.4 # GitHub Action version
       with:
