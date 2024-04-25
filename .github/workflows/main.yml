@@ -20,7 +20,7 @@ jobs:
         maven-version: 'latest' # This will install the latest Maven version
 
     - name: Set Maven Home
-      run: echo "M2_HOME=/usr/bin/mvn" >> $GITHUB_ENV
+      run: echo "M2_HOME=/usr/bin" >> $GITHUB_ENV
 
     - name: Verify Maven Installation
       run: mvn -version
