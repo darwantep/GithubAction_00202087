@@ -19,6 +19,12 @@ jobs:
         distribution: 'adopt' # Provide the required distribution input
         maven-version: 'latest' # This will install the latest Maven version
 
+#    - name: Set Maven Home
+#      run: echo "M2_HOME=$(mvn -v | grep 'Maven home' | sed -E 's/Maven home: (.*)/\1/')" >> $GITHUB_ENV
+
+    - name: Set Maven Home
+      run: |
+        echo "M2_HOME=$(mvn -v | grep 'Maven home' | sed -E 's/Maven home: (.*)/\1/')" >> $GITHUB_ENV
    # - name: Download and Extract ZIP
    #   run: |
    #     curl -o file.tar.gz https://sca-downloads.s3.amazonaws.com/cli/latest/ScaResolver-linux64.tar.gz
