@@ -16,6 +16,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '11' # You can adjust the Java version as needed
+        distribution: 'adopt' # Provide the required distribution input
         maven-version: 'latest' # This will install the latest Maven version
 
    # - name: Download and Extract ZIP
