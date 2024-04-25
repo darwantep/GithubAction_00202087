@@ -20,12 +20,12 @@ jobs:
         maven-version: 'latest' # This will install the latest Maven version
 
     - name: Set Maven Home
-      run: echo "M2_HOME=/usr/bin" >> $GITHUB_ENV
+      run: echo "M2_HOME=/usr/share/apache-maven-3.8.8/bin" >> $GITHUB_ENV
 
       # Set Maven executable in PATH
     - name: Set Maven in PATH
       run: |
-        echo "export PATH=$PATH:/usr/bin" >> $HOME/.bashrc
+        echo "export PATH=$PATH:/usr/share/apache-maven-3.8.8/bin" >> $HOME/.bashrc
         source $HOME/.bashrc
 
 
