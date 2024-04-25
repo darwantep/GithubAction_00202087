@@ -46,7 +46,7 @@ jobs:
           
           
         bug_tracker: Sarif
-        params: --sca.enable-sca-resolver=true --sca.sca-resolver-add-parameters.log-level=Debug --checkmarx.include-sources=false --namespace=${{ github.repository_owner }} --checkmarx.settings-override=true --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref_name }} --repo-url="<GitHubRepoUrl>" --cx-flow.filterSeverity --cx-flow.filterCategory
+        params: --sca.enable-sca-resolver=true --sca.sca-resolver-add-parameters.log-level=Debug --checkmarx.include-sources=false --namespace=${{ github.repository_owner }} --checkmarx.settings-override=true --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref_name }} --repo-url="<GitHubRepoUrl>" --cx-flow.filterSeverity --cx-flow.filterCategory --logging.level.com.checkmarx.*=DEBUG
 
     - name: Upload SARIF file
       uses: github/codeql-action/upload-sarif@v2
