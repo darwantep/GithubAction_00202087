@@ -27,10 +27,10 @@ jobs:
 
 
     - name: Check Maven Installation
+      working-directory: ${{ github.workspace }} # Set the working directory to the root of the repository
       run: |
         mvn_location=$(which mvn)
         echo "Maven is installed at: $mvn_location"
-
 #    - name: Set Maven Home
 #      run: echo "M2_HOME=$(mvn -v | grep 'Maven home' | sed -E 's/Maven home: (.*)/\1/')" >> $GITHUB_ENV
 
